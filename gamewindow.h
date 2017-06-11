@@ -7,8 +7,14 @@
 #include<QTimer>
 #include<QKeyEvent>
 #include<QMouseEvent>
-
-
+#include<time.h>
+#include<stdio.h>
+#include"giant.h"
+#include"archer.h"
+#include"witch.h"
+#include"prince.h"
+#include"endwindow.h"
+#include"magic.h"
 
 namespace Ui {
 class gamewindow;
@@ -23,18 +29,56 @@ public:
     ~gamewindow();
 
 signals:
-    void reopenMainwindow();
+    void draw();
+
 
 public slots:
     void back_to_mainwindow();
     void startgame();
-    void setgiant();
+    void moneystart();
+    void setgiantcard1();
+    void moneyadd();
+    void setarchercard1();
+    void setwitchcard1();
+    void setprincecard1();
+    void startminion();
+    void drawcard1();
+    void setgiantcard2();
+    void setarchercard2();
+    void setwitchcard2();
+    void setprincecard2();
+    void drawcard2();
+    void judge();
+    void giantattack();
+    void towerattack();
+    void countdownmagic();
+    void magicattack();
+    void archerattack();
+    void witchattack();
+
+private slots:
+    void on_card1_button_clicked();
+
+    void on_card2_button_clicked();
+
+
+    void on_launch_clicked();
 
 private:
     Ui::gamewindow *ui;
     QGraphicsScene *game_scene;
     QGraphicsItem *game_item;
     QTimer *gametimer;
+    QGraphicsItem *card1_item;
+    QGraphicsItem *card2_item;  
+    int card1number1,card2number1,card3number1,card4number1;
+    int card1number2,card2number2,card3number2,card4number2;
+    int drawnumber1,drawnumber2;
+    endwindow *endgame;
+    int  putmagic = 1;
+    int magiccount = 30;
+
+
 };
 
 #endif // GAMEWINDOW_H

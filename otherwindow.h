@@ -9,7 +9,8 @@
 #include<QKeyEvent>
 #include<QMouseEvent>
 #include"gamewindow.h"
-
+#include<stdio.h>
+#include<stdlib.h>
 namespace Ui {
 class otherwindow;
 }
@@ -24,14 +25,24 @@ public:
 
 signals:
 
+
+
+
 public slots:
     void showthewindow();
 
-
-private slots:
     void on_card1_clicked();
 
-    void on_start_clicked();
+    void on_card2_clicked();
+
+    void on_card3_clicked();
+
+    void on_card4_clicked();
+
+
+public:
+
+    void startselectnumber();
 
 private:
     Ui::otherwindow *ui;
@@ -39,6 +50,8 @@ private:
     QGraphicsItem *card_item;
     QTimer *cardtimer;
     gamewindow *w3;
+    int selectnumber0;
+
 };
 
 #endif // OTHERWINDOW_H

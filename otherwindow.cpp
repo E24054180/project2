@@ -27,8 +27,6 @@ otherwindow::otherwindow(QWidget *parent) :
     card_item->setPos(700,215);
     card_item = NULL;
 
-
-
 }
 
 otherwindow::~otherwindow()
@@ -37,13 +35,8 @@ otherwindow::~otherwindow()
     delete card_scene;
     delete card_item;
     delete cardtimer;
-}
 
-void otherwindow::on_start_clicked()
-{
-    w3->show();
-    this->hide();
-    w3->startgame();
+
 }
 
 void otherwindow::showthewindow()
@@ -51,8 +44,122 @@ void otherwindow::showthewindow()
     this->show();
 }
 
-
 void otherwindow::on_card1_clicked()
 {
-    w3->setgiant();
+    selectnumber0=selectnumber0+1;
+    if(selectnumber0==1)
+    {
+       w3->setgiantcard1();
+    }
+
+    else if(selectnumber0==2)
+    {
+        this->hide();
+        w3->show();
+        w3-> setWindowTitle(QObject::tr("gamewindow"));
+        w3->move(600, 100);
+        w3->startgame();
+        w3->moneystart();
+        w3->setgiantcard2();
+    }
 }
+
+void otherwindow::on_card2_clicked()
+{
+    selectnumber0=selectnumber0+1;
+
+    if(selectnumber0==1)
+    {
+       w3->setarchercard1();
+    }
+
+
+    else if(selectnumber0==2)
+    {
+        this->hide();
+        w3->show();
+        w3-> setWindowTitle(QObject::tr("gamewindow"));
+        w3->move(600, 100);
+        w3->startgame();
+        w3->moneystart();
+        w3->setarchercard2();
+    }
+}
+
+void otherwindow::on_card3_clicked()
+{
+    selectnumber0=selectnumber0+1;
+
+    if(selectnumber0==1)
+    {
+       w3->setwitchcard1();
+    }
+
+    else if(selectnumber0==2)
+    {
+        this->hide();
+        w3->show();
+        w3-> setWindowTitle(QObject::tr("gamewindow"));
+        w3->move(600, 100);
+        w3->startgame();
+        w3->moneystart();
+        w3->setwitchcard2();
+    }
+}
+
+void otherwindow::on_card4_clicked()
+{
+    selectnumber0=selectnumber0+1;
+
+    if(selectnumber0==1)
+    {
+       w3->setprincecard1();
+    }
+
+    else if(selectnumber0==2)
+    {
+        this->hide();
+        w3->show();
+        w3-> setWindowTitle(QObject::tr("gamewindow"));
+        w3->move(600, 100);
+        w3->startgame();
+        w3->moneystart();
+        w3->setprincecard2();
+    }
+}
+
+void otherwindow::startselectnumber()
+{
+    selectnumber0=0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

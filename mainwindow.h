@@ -36,7 +36,8 @@ private:
     QGraphicsItem *active_item;
     QTimer *timer;
     otherwindow *w2;
-    gamewindow *w3;
+
+
 };
 
 #endif // MAINWINDOW_H
