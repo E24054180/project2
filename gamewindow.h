@@ -15,6 +15,9 @@
 #include"prince.h"
 #include"endwindow.h"
 #include"magic.h"
+#include"hero.h"
+#include <QKeyEvent>
+
 
 namespace Ui {
 class gamewindow;
@@ -55,6 +58,8 @@ public slots:
     void magicattack();
     void archerattack();
     void witchattack();
+    void princeattack();
+    virtual void keyPressEvent(QKeyEvent *ee);
 
 private slots:
     void on_card1_button_clicked();
@@ -63,6 +68,8 @@ private slots:
 
 
     void on_launch_clicked();
+
+    void on_hero_put_clicked();
 
 private:
     Ui::gamewindow *ui;
@@ -77,7 +84,8 @@ private:
     endwindow *endgame;
     int  putmagic = 1;
     int magiccount = 30;
-
+    int heronumber = 0;
+    hero *onehero = new hero;
 
 };
 

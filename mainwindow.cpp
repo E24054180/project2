@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow),
     menu_scene(new QGraphicsScene(0, 0, 1131, 671)),
     timer(new QTimer),
-    w2(new otherwindow)
+    account(new setaccountwindow)
 {
     ui->setupUi(this);
     ui->graphicsView->setScene(menu_scene);
@@ -32,12 +32,12 @@ MainWindow::~MainWindow()
 void MainWindow::mousePressEvent(QMouseEvent *e)
 {
 
-     if(e->x()<410&&e->x()>90&&e->y()<360&&e->y()>190){ 
+     if(e->x()<410&&e->x()>90&&e->y()<360&&e->y()>190)
+     {
          this->hide();
-         w2->show();
-         w2-> setWindowTitle(QObject::tr("cardwindow"));
-         w2->move(300, 100);
-         w2->startselectnumber();
+         account->show();
+         account-> setWindowTitle(QObject::tr("Sign In"));
+         account-> move(600, 100);
     }
 }
 

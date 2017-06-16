@@ -1,20 +1,22 @@
 <RCC>
     <qresource prefix="/">
         <file>picture/野猪骑士.png</file>
-        <file>picture/6231101860_3c16171295.jpg</file>
-        <file>picture/box1.png</file>
-        <file>picture/building1.jpeg</file>
-        <file>picture/building2.jpg</file>
         <file>picture/images.jpeg</file>
-        <file>picture/index_03.gif</file>
         <file>picture/maxresdefault.jpg</file>
         <file>picture/mode_pic5.jpg</file>
         <file>picture/sd4_small.jpg</file>
         <file>picture/witch.jpg</file>
         <file>picture/prince.jpg</file>
-        <file>picture/index.jpeg</file>
         <file>picture/background.jpg</file>
         <file>picture/giant.jpeg</file>
         <file>picture/archer.jpeg</file>
+        <file>picture/gamemap.png</file>
+        <file>picture/white.png</file>
+        <file>picture/money.jpeg</file>
+        <file>picture/startgame.jpeg</file>
+        <file>picture/defeat.jpeg</file>
+        <file>picture/victory.jpeg</file>
+        <file>picture/rocket.jpeg</file>
+        <file>picture/danger.jpeg</file>
     </qresource>
 </RCC>

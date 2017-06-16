@@ -6,7 +6,7 @@ collectwindow::collectwindow(QWidget *parent) :
     ui(new Ui::collectwindow)
 {
     ui->setupUi(this);
-    
+
 
 }
 
@@ -14,3 +14,4 @@ collectwindow::~collectwindow()
 {
     delete ui;
 }
+

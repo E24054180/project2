@@ -3,19 +3,16 @@
 
 #include <QObject>
 
-class ourtower_left : public QObject
+class ourtower : public QObject
 {
     Q_OBJECT
 public:
-    explicit ourtower_left(QObject *parent = 0);
+    explicit ourtower(QObject *parent = 0);
 
 signals:
 
 public slots:
-    void attackbygiant();
-    void attackbyarcher();
-    void attackbywitch();
-    void attackbyprince();
+
 
 private:
     int hp = 30000;

@@ -45,3 +45,4 @@ void witch::attackbytower()
     hp=hp-500;
 }
 
+

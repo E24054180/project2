@@ -45,5 +45,3 @@ void archer::attackbytower()
 {
     hp=hp-500;
 }
-
-

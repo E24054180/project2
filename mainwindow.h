@@ -8,7 +8,7 @@
 #include<QTimer>
 #include<QKeyEvent>
 #include<QMouseEvent>
-#include"otherwindow.h"
+#include"setaccountwindow.h"
 
 
 namespace Ui {
@@ -35,7 +35,7 @@ private:
     QGraphicsScene *menu_scene;
     QGraphicsItem *active_item;
     QTimer *timer;
-    otherwindow *w2;
+    setaccountwindow *account;
 
 
 };

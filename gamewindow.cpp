@@ -32,6 +32,17 @@ gamewindow::gamewindow(QWidget *parent) :
     game_scene->addItem(game_item);
     game_item->setPos(360,700);
 
+    game_item = new QGraphicsPixmapItem(QPixmap(":/picture/maxresdefault.jpg").scaled(80,80));
+    game_scene->addItem(game_item);
+    game_item->setPos(580,705);
+
+    ui->lcdgametime->display(180);
+    ui->building1_hp->setValue(100);
+    ui->buliding2_hp->setValue(100);
+    ui->ourtower_left->setValue(100);
+    ui->ourtower_right->setValue(100);
+    ui->enemytower_left->setValue(100);
+    ui->enemytower_right->setValue(100);
 
     game_item=NULL;
     gametimer->start(1000);
@@ -50,6 +61,7 @@ gamewindow::~gamewindow()
     delete gametimer;
     delete card1_item;
     delete card2_item;
+    delete onehero;
 
 }
 
@@ -63,17 +75,18 @@ void gamewindow::back_to_mainwindow()
         this->judge();
      }
 
+     else if(ui->enemytower_left->value()<=50)
+     {
+         game_item = new QGraphicsPixmapItem(QPixmap(":/picture/danger.jpeg").scaled(100,100));
+         game_scene->addItem(game_item);
+         game_item->setPos(100,200);
+     }
+
 }
 
 void gamewindow::startgame()
 {
-    ui->lcdgametime->display(180);
-    ui->building1_hp->setValue(100);
-    ui->buliding2_hp->setValue(100);
-    ui->ourtower_left->setValue(100);
-    ui->ourtower_right->setValue(100);
-    ui->enemytower_left->setValue(100);
-    ui->enemytower_right->setValue(100);
+
 }
 
 void gamewindow::moneystart()
@@ -300,6 +313,8 @@ void gamewindow::on_card1_button_clicked()
            prince1->setPixmap(QPixmap(":/picture/prince.jpg").scaled(30, 30));
            prince1->setPos(215,520);
            prince1->connect(gametimer,SIGNAL(timeout()),prince1,SLOT(move()));
+           prince1->connect(prince1,SIGNAL(attack()),this,SLOT(princeattack()));
+           prince1->connect(prince1,SIGNAL(battle()),prince1,SLOT(attackbytower()));
            game_scene->addItem(static_cast<QGraphicsPixmapItem*>(prince1));
            ui->ourmoney->display(ui->ourmoney->value()-4);
            card4number1=0;
@@ -362,6 +377,8 @@ void gamewindow::on_card2_button_clicked()
            prince1->setPixmap(QPixmap(":/picture/prince.jpg").scaled(30, 30));
            prince1->setPos(215,520);
            prince1->connect(gametimer,SIGNAL(timeout()),prince1,SLOT(move()));
+           prince1->connect(prince1,SIGNAL(attack()),this,SLOT(princeattack()));
+           prince1->connect(prince1,SIGNAL(battle()),prince1,SLOT(attackbytower()));
            game_scene->addItem(static_cast<QGraphicsPixmapItem*>(prince1));
            ui->ourmoney->display(ui->ourmoney->value()-4);
            card4number2=0;
@@ -434,14 +451,14 @@ void gamewindow::drawcard2()
 
 void gamewindow::judge()
 {
-    if(ui->ourtower_left->value()>ui->enemytower_left->value())
+    if(ui->ourtower_left->value()>ui->enemytower_left->value()&&ui->lcdgametime->value()==0)
     {
         endgame->victory();
         endgame->show();
         endgame-> setWindowTitle(QObject::tr("result"));
         endgame->move(700, 400);
     }
-    else if(ui->ourtower_left->value()<ui->enemytower_left->value())
+    else if(ui->ourtower_left->value()<ui->enemytower_left->value()&&ui->lcdgametime->value()==0)
     {
         endgame->defeat();
         endgame->show();
@@ -453,18 +470,24 @@ void gamewindow::judge()
 
 void gamewindow::giantattack()
 {
-    ui->enemytower_left->setValue(ui->enemytower_left->value()-2);
+    ui->enemytower_left->setValue(ui->enemytower_left->value()-1);
 }
 
 void gamewindow::archerattack()
 {
-    ui->enemytower_left->setValue(ui->enemytower_left->value()-4);
+    ui->enemytower_left->setValue(ui->enemytower_left->value()-2);
 }
 
 void gamewindow::witchattack()
 {
-    ui->enemytower_left->setValue(ui->enemytower_left->value()-5);
+    ui->enemytower_left->setValue(ui->enemytower_left->value()-3);
 }
+
+void gamewindow::princeattack()
+{
+     ui->enemytower_left->setValue(ui->enemytower_left->value()-4);
+}
+
 
 void gamewindow::towerattack()
 {
@@ -511,4 +534,62 @@ void gamewindow::magicattack()
     ui->buliding2_hp->setValue(ui->buliding2_hp->value()-5);
 
 }
+
+void gamewindow::on_hero_put_clicked()
+{
+    if(ui->lcdgametime->value()<=120&&heronumber==0&&ui->ourmoney->value()==10)
+    {
+        ui->ourmoney->display(0);
+        heronumber = heronumber +1;
+
+
+        onehero->setPixmap(QPixmap(":/picture/maxresdefault.jpg").scaled(40, 40));
+        onehero->setPos(320,550);
+        game_scene->addItem(static_cast<QGraphicsPixmapItem*>(onehero));
+        onehero->connect(gametimer,SIGNAL(timeout()),onehero,SLOT(dead()));
+
+    }
+}
+
+void gamewindow::keyPressEvent(QKeyEvent *ee)
+{
+
+    if(heronumber==1)
+    {
+    switch(ee->key())
+    {
+    case Qt::Key_Up:
+    case Qt::Key_W:
+      onehero->setPos(onehero->x(),onehero->y() - 10);
+       break;
+    case Qt::Key_Down:
+    case Qt::Key_S:
+     onehero->setPos(onehero->x(), onehero->y() + 10);
+       break;
+    case Qt::Key_Left:
+    case Qt::Key_A:
+      onehero->setPos(onehero->x() - 10, onehero->y());
+        break;
+    case Qt::Key_Right:
+    case Qt::Key_D:
+      onehero->setPos(onehero->x() + 10,onehero-> y());
+        break;
+    }
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 

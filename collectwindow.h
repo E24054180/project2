@@ -9,6 +9,7 @@
 #include<QKeyEvent>
 #include<QMouseEvent>
 
+
 namespace Ui {
 class collectwindow;
 }
@@ -20,6 +21,7 @@ class collectwindow : public QMainWindow
 public:
     explicit collectwindow(QWidget *parent = 0);
     ~collectwindow();
+
 
 private:
     Ui::collectwindow *ui;

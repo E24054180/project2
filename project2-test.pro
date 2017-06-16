@@ -24,7 +24,9 @@ SOURCES += main.cpp\
     endwindow.cpp \
     magic.cpp \
     enemytower_left.cpp \
-    ourtower_left.cpp
+    ourtower_left.cpp \
+    setaccountwindow.cpp \
+    hero.cpp
 
 HEADERS  += mainwindow.h \
     gamewindow.h \
@@ -37,13 +39,16 @@ HEADERS  += mainwindow.h \
     endwindow.h \
     magic.h \
     ourtower_left.h \
-    enemytower_left.h
+    enemytower_left.h \
+    setaccountwindow.h \
+    hero.h
 
 FORMS    += mainwindow.ui \
     gamewindow.ui \
     collectwindow.ui \
     otherwindow.ui \
-    endwindow.ui
+    endwindow.ui \
+    setaccountwindow.ui
 
 RESOURCES += \
     project2-test_res.qrc

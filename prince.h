@@ -21,7 +21,7 @@ public slots:
     void attackbytower();
 
 private:
-    int hp = 3000;
+    int hp = 2000;
 };
 
 #endif // PRINCE_H
