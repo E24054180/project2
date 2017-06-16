@@ -194,7 +194,7 @@
      <string>hero</string>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="lcdNumber">
+   <widget class="QLCDNumber" name="killtime">
     <property name="geometry">
      <rect>
       <x>630</x>
@@ -204,7 +204,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="majorkill">
     <property name="geometry">
      <rect>
       <x>540</x>
@@ -214,7 +214,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>kill</string>
     </property>
    </widget>
   </widget>

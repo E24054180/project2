@@ -5,28 +5,33 @@ hero::hero(QObject *parent) : QObject(parent)
 
 }
 
-void hero::dead()
+
+void hero::attackbytower()
 {
-    if(x()<=100)
+    if(y()<400&&(x()<420||x()>285))
     {
-        setPos(x(),y());
-    }
+        hp = hp - 500;
 
-    else if(x()>=690)
-    {
-       setPos(x(),y());
-    }
-
-    else if(y()<=50)
-    {
-        setPos(x(),y());
-    }
-
-    else if(y()>=800){
-        setPos(x(),y());
+        if(hp<=0)
+        {
+            emit dead();
+            delete this;
+        }
     }
 }
 
+void hero::attacktower()
+{
+     if(y()<400&&x()>200&&x()<250)
+     {
+         emit attack1();
+     }
+
+     else if(y()<400&&x()>420&&x()<460)
+     {
+         emit attack2();
+     }
+}
 
 
 

@@ -26,7 +26,8 @@ SOURCES += main.cpp\
     enemytower_left.cpp \
     ourtower_left.cpp \
     setaccountwindow.cpp \
-    hero.cpp
+    hero.cpp \
+    herokill.cpp
 
 HEADERS  += mainwindow.h \
     gamewindow.h \
@@ -41,7 +42,8 @@ HEADERS  += mainwindow.h \
     ourtower_left.h \
     enemytower_left.h \
     setaccountwindow.h \
-    hero.h
+    hero.h \
+    herokill.h
 
 FORMS    += mainwindow.ui \
     gamewindow.ui \

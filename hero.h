@@ -13,11 +13,16 @@ public:
     explicit hero(QObject *parent = 0);
 
 signals:
-
-
-public slots:
+    void attack1();
+    void attack2();
     void dead();
+public slots:
 
+    void attackbytower();
+    void attacktower();
+
+private:
+    int hp = 2000;
 
 };
 
